@@ -3,20 +3,19 @@
 # Práctica 12: DSL: Redacción de Cuestionarios I (Sin Contexto)
 
 ## Enunciado
-Se trata de escribir un programa que redacte cuestionarios. En principio, sólo soportaremos pre-
-guntas del tipo selección múltiple:
-    1. ¿En que a~no Cristobal Colón descubrió América?
-        1 - 1942
-        2 - 1492
-        3 - 1808
-        4 - 1914
-    Su respuesta:
+Se trata de escribir un programa que redacte cuestionarios. En principio, sólo soportaremos preguntas del tipo selección múltiple:
 
-Debe definir una clase Quiz que soporte un pequeñoo lenguaje en el que las preguntas puedan ser
-especificadas. El constructor de Quiz va seguido de un bloque al que pasa como argumento el objeto
-e que representa al examen:
+    1 - ¿En que año Cristóbal Colón descubrió América?
+        1. 1942
+        2. 1492
+        3. 1808
+        4. 1914
+        Su respuesta:
+
+Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las preguntas puedan ser especificadas. El constructor de __Quiz__ va seguido de un bloque al que pasa como argumento el objeto '_e_' que representa al examen:
+
     quiz = Quiz.new("Cuestionario de PFS 10/12/2011") do |e|
-        e.question ’¿En que a~no Cristobal Colón descubrió América?’,
+        e.question ’¿En que añoo Cristóbal Colón descubrió América?’,
         e.wrong =>’1942’,
         e.right =>’1492’,
         e.wrong =>’1808’,
@@ -32,16 +31,16 @@ e que representa al examen:
     quiz.run
 
 ## Objetivos
--Escriba un método to_html que genere una página describiendo el examen. Use ERB.
--Opcionalmente puede incluir hojas de estilo, javascript, etc. en el HTML generado
--Use TDD con RSpec
--Use Unit Testing
+- Escriba un método to_html que genere una página describiendo el examen. Use ERB.
+- Opcionalmente puede incluir hojas de estilo, javascript, etc. en el HTML  generado
+- Use TDD con RSpec
+- Use Unit Testing
 -Use Continuous Integration (Travis)
--Use Continuous Testing (Guard)
--Documente su gema (véase RDOC::Markup o RDOC o YARD).
--Cree una gema ull-etsii-aluXX-quiz
--Publique la gema en RubyGems.org
--Indique la URL de su repositorio en GitHub y la URL en RubyGems.org
+- Use Continuous Testing (Guard)
+- Documente su gema (véase RDOC::Markup o RDOC o YARD).
+- Cree una gema ull-etsii-aluXX-quiz
+- Publique la gema en RubyGems.org
+- Indique la URL de su repositorio en GitHub y la URL en RubyGems.org
 
 ## Installation
 
