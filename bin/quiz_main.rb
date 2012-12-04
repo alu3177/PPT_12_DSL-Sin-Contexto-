@@ -1,8 +1,9 @@
+#encoding: UTF-8
 require 'ULL::ETSII::Alu3177::Quiz'
 include ULL::ETSII::Alu3177::Quiz
 
 quiz = Quiz.new("Cuestionario de PFS 10/12/2011") do |e|
-    e.question "En que anio Cristobal Colon descubrio America?",
+    e.question "En que año Cristóbal Colón descubrió América?",
         e.wrong =>'1942',
         e.right =>'1492',
         e.wrong =>'1808',
@@ -13,9 +14,11 @@ quiz = Quiz.new("Cuestionario de PFS 10/12/2011") do |e|
 
     e.question "#{a} + #{b} = ",
         e.wrong =>"44",
-        e.wrong =>"#{a + b + 2}",
+        e.wrong =>"#{a + b + rand(1..7)}",
         e.right =>"#{a + b}",
-        e.wrong =>"#{a + b - 2}"
+        e.wrong =>"#{a + b -  rand(1..7)}"
 end
 
-puts quiz
+#quiz.run
+
+quiz.to_html

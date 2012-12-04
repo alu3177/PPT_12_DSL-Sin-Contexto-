@@ -1,16 +1,24 @@
+#encoding: UTF-8
 require "ULL::ETSII::Alu3177::Quiz/version"
+require 'colorize'
+require 'erb'
+
+
 
 module ULL
   module ETSII
     module Alu3177
       module Quiz
 
+        WRONG = false
+        RIGHT = true
+
         class Quiz
             attr_accessor :name, :questions
 
-            WRONG = 0
             def initialize(name)
                 @counter = 0
+                @aciertos = 0
                 self.name = name
                 self.questions = []
 
@@ -39,17 +47,80 @@ module ULL
                 questions << q
             end
 
-            def to_s
+            def run
+                puts name
                 questions.each do |q|
                     puts q
+                    print "Su respuesta: "
+                    resp = gets.chomp.to_i
+                    raise IndexError, "Answer must be between 1 and #{q.answers.size}." unless resp <= q.answers.size and resp > 0
+                    if q.answers[resp-1].state
+                        puts "Correcto!".colorize(:light_green)
+                        @aciertos += 1
+                    else
+                        correcta = q.answers.select { |ans| ans.state }.first
+                        puts "Fallo, la respuesta correcta era #{correcta}".colorize(:red)
+                    end
+                    puts;puts
+                end
+                puts "Has acertado el #{(@aciertos/questions.size.to_f)*100}% de las preguntas [#{@aciertos} de #{questions.size}]."
+            end
+
+            def to_s
+                puts name
+                questions.each do |q|
+                    puts "#{q}"
                 end
                 ""
+            end
+
+            def to_html
+
+
+html_template = %{
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title><%= name %></title>
+  </head>
+  <body>
+    <div class="contenedor">
+        <h1><%= name %></h1>
+        <form action="">
+            <% i=0; questions.each do |q| %>
+                <div id="question_<%=i%>" class="question">
+                    <h3><%= q.title %></h3>
+                        <% j=0; q.answers.each do |a| %>
+                            <input type="radio" name="preg<%=i%>" value="<%= a.state %>"><%= a.value %><br />
+                        <% end %>
+                </div>
+                <% i += 1 %>
+            <% end %>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+  </body>
+</html>
+
+}
+
+                # SetUp del fichero de salida
+                if Dir["html"].count == 0
+                    Dir.mkdir("html")
+                end
+                outFile = File.new("html/test.html", "w")
+                raise IOError, 'Can\'t access to html output file' unless outFile
+                # Construimos el ERB y lo escribimos en el fichero
+                rhtml = ERB.new(html_template)
+                outFile.syswrite(rhtml.result(binding))
+                outFile.close
             end
 
         end
 
         class Question
-            attr_accessor :answers
+            attr_accessor :answers, :title
             def initialize(title, anss)
                 raise ArgumentError, 'Title has to be a String' unless title.is_a? String
                 @title = title
@@ -57,19 +128,18 @@ module ULL
             end
 
             def to_s
-                puts "#{@title}"
+                puts "# #{@title}".colorize(:light_blue)
+                i = 1
                 answers.each do |a|
-                    puts a
+                    puts "  [#{i}] #{a}"
+                    i += 1
                 end
                 ""
             end
-
-
         end
 
         class Answer
-            WRONG = 0
-            RIGHT = 1
+            attr_reader :state, :value
 
             def initialize(ans)
                 state = ans[0]
@@ -79,7 +149,7 @@ module ULL
             end
 
             def to_s
-                "#{@state} => #{@value}"
+                "#{@value}"
             end
         end
 

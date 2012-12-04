@@ -21,5 +21,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "guard"
   gem.add_development_dependency "guard-rspec"
   gem.add_development_dependency "rdoc"
-
+  gem.add_runtime_dependency "colorize"
 end
