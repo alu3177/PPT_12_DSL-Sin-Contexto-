@@ -1,7 +1,7 @@
 # ULL::ETSII::Alu3177::Quiz
 
 # Práctica 12: DSL: Redacción de Cuestionarios I (Sin Contexto)
-
+# W.I.P (Work In Progress)
 ## Enunciado
 Se trata de escribir un programa que redacte cuestionarios. En principio, sólo soportaremos preguntas del tipo selección múltiple:
 
