@@ -12,7 +12,7 @@ Se trata de escribir un programa que redacte cuestionarios. En principio, sólo 
         4. 1914
         Su respuesta:
 
-Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las preguntas puedan ser especificadas. El constructor de __Quiz__ va seguido de un bloque al que pasa como argumento el objeto '_e_' que representa al examen:
+Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las preguntas puedan ser especificadas. El constructor de __Quiz__ va seguido de un bloque al que pasa como argumento el objeto _'e'_ que representa al examen:
 
     quiz = Quiz.new("Cuestionario de PFS 10/12/2011") do |e|
         e.question ’¿En que añoo Cristóbal Colón descubrió América?’,
