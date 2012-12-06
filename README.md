@@ -1,7 +1,7 @@
 # ULL::ETSII::Alu3177::Quiz
 
 # Práctica 12: DSL: Redacción de Cuestionarios I (Sin Contexto)
-# Práctica Finalizada
+# W.I.P - Work In Progress
 ## Enunciado
 Se trata de escribir un programa que redacte cuestionarios. En principio, sólo soportaremos preguntas del tipo selección múltiple:
 
@@ -16,17 +16,19 @@ Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las p
 
     quiz = Quiz.new("Cuestionario de PFS 10/12/2011") do |e|
         e.question ’¿En que añoo Cristóbal Colón descubrió América?’,
-        e.wrong =>’1942’,
-        e.right =>’1492’,
-        e.wrong =>’1808’,
-        e.wrong =>’1914’
+            e.wrong =>’1942’,
+            e.right =>’1492’,
+            e.wrong =>’1808’,
+            e.wrong =>’1914’
+
         a = rand(10)
         b = rand(10)
+
         e.question "#{a}+#{b} = ",
-        e.wrong =>"44",
-        e.wrong =>"#{a + b + 2}",
-        e.right =>"#{a + b}",
-        e.wrong =>"#{a + b - 2}"
+            e.wrong =>"44",
+            e.wrong =>"#{a + b + 2}",
+            e.right =>"#{a + b}",
+            e.wrong =>"#{a + b - 2}"
     end
     quiz.run
 
@@ -43,7 +45,8 @@ Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las p
 - Indique la URL de su repositorio en GitHub y la URL en RubyGems.org
 
 ## Exportación HTML
-Mediante el método 'to_html' de la clase Quiz crea un directorio llamado 'html' y en su interior se construye un fichero con el test. Se incluyen además los ficheros de estilo e implementación JavaScript.
+Mediante el método 'to_html' de la clase _Quiz_ crea un directorio llamado 'html' y en su interior se construye un fichero con el test. Se incluyen además los ficheros de estilo e implementación JavaScript.
+
 La página construída representa cada pregunta y sus posibles respuestas y además permite evaluar si son correctas o no (mostrando individualmente el resultado de cada pregunta).
 
 ## Installation
