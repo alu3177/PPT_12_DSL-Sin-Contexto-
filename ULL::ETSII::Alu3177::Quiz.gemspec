@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = ULL::ETSII::Alu3177::Quiz::VERSION
   gem.authors       = ["Fernando González López-Peñalver"]
   gem.email         = ["alu0100256543@ull.edu.es"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Práctica: DSL: Redacción de Cuestionarios I (Sin Contexto)}
+  gem.summary       = %q{Generador de custionarios. Permite crear custionarios mediante un DSL simple. Además se podrán ejecutar estos cuestionarios via consola o generar un documento html encargado de mostrar y corregir los tests.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
