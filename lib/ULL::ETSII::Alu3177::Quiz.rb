@@ -19,8 +19,8 @@ module ULL
             def initialize(name)
                 @counter = 0
                 @aciertos = 0
-                self.name = name
-                self.questions = []
+                @name = name
+                @questions = []
 
                 yield self
             end
@@ -61,25 +61,28 @@ module ULL
                         correcta = q.answers.select { |ans| ans.state }.first
                         puts "Fallo, la respuesta correcta era #{correcta}".colorize(:red)
                     end
-                    puts;puts
+                    puts
                 end
                 puts "Has acertado el #{(@aciertos/questions.size.to_f)*100}% de las preguntas [#{@aciertos} de #{questions.size}]."
             end
 
             def to_s
-                puts name
+                out = name + "\n"
+                #puts name
                 questions.each do |q|
-                    puts "#{q}"
+                    out << "#{q}\n"
                 end
-                ""
+                out
             end
 
             def to_html
                 # SetUp del fichero de salida
-                if Dir["html"].count == 0
-                    Dir.mkdir("html")
+                if not Dir.exist? "html"
+                    # Copiamos el directorio html con los ficheros básicos
+                    require 'fileutils'
+                    FileUtils.cp_r File.expand_path(File.dirname(__FILE__)) + '/html', 'html'
                 end
-                outFile = File.new("html/test.html", "w")
+                outFile = File.new("html/#{name.gsub(/[\ \\\/]/, '_')}.html", "w")
                 raise IOError, 'Can\'t access to html output file' unless outFile
                 # Construimos el ERB y lo escribimos en el fichero
                 require 'templates'
@@ -95,17 +98,18 @@ module ULL
             def initialize(title, anss)
                 raise ArgumentError, 'Title has to be a String' unless title.is_a? String
                 @title = title
-                self.answers = anss
+                @answers = anss
             end
 
             def to_s
-                puts "# #{@title}".colorize(:light_blue)
+                out = "# #{@title}".colorize(:light_blue) + "\n"
+                #puts "# #{@title}".colorize(:light_blue)
                 i = 1
                 answers.each do |a|
-                    puts "  [#{i}] #{a}"
+                    out << "  [#{i}] #{a}\n"
                     i += 1
                 end
-                ""
+                out
             end
         end
 
