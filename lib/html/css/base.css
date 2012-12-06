@@ -1,0 +1,28 @@
+body{
+    font: 78.5% "Trebuchet MS", sans-serif;
+    margin: 50px;
+}
+
+h1{
+    font-size: 350%;
+    color: #E0E0E0;
+}
+
+h3{
+    color: #C40F45;
+}
+
+.contenedor{
+    background-color: #666;
+    margin-left: 5em;
+    padding: 1em 1em 1em 10em;
+    width: 65%;
+}
+
+.question{
+    background-color: #AAA;
+    padding: 1em 1em 2em 1em;
+    margin-bottom: 2em;
+    width: 80%;
+}
+

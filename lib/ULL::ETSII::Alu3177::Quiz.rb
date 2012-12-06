@@ -75,36 +75,6 @@ module ULL
             end
 
             def to_html
-
-
-html_template = %{
-
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><%= name %></title>
-  </head>
-  <body>
-    <div class="contenedor">
-        <h1><%= name %></h1>
-        <form action="">
-            <% i=0; questions.each do |q| %>
-                <div id="question_<%=i%>" class="question">
-                    <h3><%= q.title %></h3>
-                        <% j=0; q.answers.each do |a| %>
-                            <input type="radio" name="preg<%=i%>" value="<%= a.state %>"><%= a.value %><br />
-                        <% end %>
-                </div>
-                <% i += 1 %>
-            <% end %>
-            <input type="submit" value="Enviar">
-        </form>
-    </div>
-  </body>
-</html>
-
-}
-
                 # SetUp del fichero de salida
                 if Dir["html"].count == 0
                     Dir.mkdir("html")
@@ -112,7 +82,8 @@ html_template = %{
                 outFile = File.new("html/test.html", "w")
                 raise IOError, 'Can\'t access to html output file' unless outFile
                 # Construimos el ERB y lo escribimos en el fichero
-                rhtml = ERB.new(html_template)
+                require 'templates'
+                rhtml = ERB.new(HTML_TEMPLATE)
                 outFile.syswrite(rhtml.result(binding))
                 outFile.close
             end
