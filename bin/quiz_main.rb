@@ -16,7 +16,7 @@ quiz = Quiz.new("Lenguajes y Paradigmas de Programación: Temas 1 y 2") do |e|
     e.question "¿Cómo se añaden cambios para que estén bajo el control de git?",
         e.wrong => "git update filename",
         e.wrong => "git include filename",
-        e.right => "git stage filename",
+        e.right => "git add filename",
         e.wrong => "git require filename"
     e.question "¿Cómo se ve el estado de mis ficheros con respecto al repositorio?",
         e.wrong => "git list",
@@ -29,8 +29,8 @@ quiz = Quiz.new("Lenguajes y Paradigmas de Programación: Temas 1 y 2") do |e|
     e.question "¿Qué opción hay que pasarle a git commit para especificar el mensaje de log y evitar que abra el editor?",
         e.wrong => "-n",
         e.wrong => "-n \"Texto\"",
-        e.right => "-m",
-        e.wrong => "-m \"Texto\""
+        e.wrong => "-m",
+        e.right => "-m \"Texto\""
     e.question "¿Qué opción hay que pasarle a git commit para que añada todos los cambios efectuados en ficheros rastreados (tracked)?",
         e.right => "-a",
         e.wrong => "-c",
