@@ -49,10 +49,12 @@ La página construída representa cada pregunta y sus posibles respuestas y adem
 - Publique la gema en RubyGems.org
 - Indique la URL de su repositorio en GitHub y la URL en RubyGems.org
 
-# NOTA:
+## NOTA:
 No se ha publicado la GEM, pues el nombre contiene caracteres incompatibles con Rubygems (en concreto ':').
 
 Por lo visto esto genera problemas también en sistemas windows.
+
+Se evitará cometer este error en el futuro.
 
 ## Contributing
 
