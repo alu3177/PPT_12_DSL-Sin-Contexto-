@@ -1,7 +1,7 @@
 # ULL::ETSII::Alu3177::Quiz
 
 # Práctica 12: DSL: Redacción de Cuestionarios I (Sin Contexto)
-# Práctica finalizada
+# `Práctica finalizada`
 ## Enunciado
 Se trata de escribir un programa que redacte cuestionarios. En principio, sólo soportaremos preguntas del tipo selección múltiple:
 
@@ -33,7 +33,7 @@ Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las p
     quiz.run
     
 ## Exportación HTML
-Mediante el método `to_html'` de la clase _Quiz_ crea un directorio llamado 'html' y en su interior se construye un fichero con el test. Se incluyen además los ficheros de estilo e implementación JavaScript.
+Mediante el método `to_html` de la clase _Quiz_ crea un directorio llamado 'html' y en su interior se construye un fichero con el test. Se incluyen además los ficheros de estilo e implementación JavaScript.
 
 La página construída representa cada pregunta y sus posibles respuestas y además permite evaluar si son correctas o no (mostrando individualmente el resultado de cada pregunta).
 
