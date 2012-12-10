@@ -48,6 +48,7 @@ La página construída representa cada pregunta y sus posibles respuestas y adem
 - Cree una gema ull-etsii-aluXX-quiz
 - Publique la gema en RubyGems.org
 - Indique la URL de su repositorio en GitHub y la URL en RubyGems.org
+
 # NOTA:
 No se ha publicado la GEM, pues el nombre contiene caracteres incompatibles con Rubygems (en concreto ':').
 
