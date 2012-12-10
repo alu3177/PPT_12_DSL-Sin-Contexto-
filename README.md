@@ -33,19 +33,19 @@ Debe definir una clase __Quiz__ que soporte un pequeño lenguaje en el que las p
     quiz.run
     
 ## Exportación HTML
-Mediante el método 'to_html' de la clase _Quiz_ crea un directorio llamado 'html' y en su interior se construye un fichero con el test. Se incluyen además los ficheros de estilo e implementación JavaScript.
+Mediante el método (`to_html'`) de la clase _Quiz_ crea un directorio llamado 'html' y en su interior se construye un fichero con el test. Se incluyen además los ficheros de estilo e implementación JavaScript.
 
 La página construída representa cada pregunta y sus posibles respuestas y además permite evaluar si son correctas o no (mostrando individualmente el resultado de cada pregunta).
 
 ## Objetivos
-- Escriba un método to_html que genere una página describiendo el examen. Use ERB.
+- Escriba un método (`to_html`) que genere una página describiendo el examen. (`Use ERB`)
 - Opcionalmente puede incluir hojas de estilo, javascript, etc. en el HTML  generado
 - Use TDD con RSpec
 - Use Unit Testing
 - Use Continuous Integration (Travis)
 - Use Continuous Testing (Guard)
-- Documente su gema (véase RDOC::Markup o RDOC o YARD).
-- Cree una gema ull-etsii-aluXX-quiz
+- Documente su gema véase (`RDOC::Markup o RDOC o YARD`)
+- Cree una gema (`ull-etsii-aluXX-quiz`)
 - Publique la gema en RubyGems.org
 - Indique la URL de su repositorio en GitHub y la URL en RubyGems.org
 
