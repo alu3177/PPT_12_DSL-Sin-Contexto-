@@ -4,16 +4,7 @@ module ULL
     module Alu3177
       module Quiz
 
-        HTML_TEMPLATE = %{
-        <html>
-          <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-            <title><%= name %></title>
-            <link href="css/blitzer/jquery-ui-1.9.2.custom.min.css" rel="stylesheet">
-            <link href="css/base.css" rel="stylesheet">
-            <script src="js/jquery-1.8.3.js"></script>
-            <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-            <script>
+		JAVASCRIPT_TEMPLATE = %{
             $(function() {
                 $( "#button" ).button();
             <% for i in 1..questions.size %>
@@ -38,7 +29,18 @@ module ULL
                 }
                 <%end%>
             }
-            </script>
+		}
+
+        HTML_TEMPLATE = %{
+        <html>
+          <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <title><%= name %></title>
+            <link href="css/blitzer/jquery-ui-1.9.2.custom.min.css" rel="stylesheet">
+            <link href="css/base.css" rel="stylesheet">
+            <script src="js/jquery-1.8.3.js"></script>
+            <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+            <script src="js/quiz.js"></script>
           </head>
           <body>
             <div class="contenedor">

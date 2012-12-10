@@ -87,7 +87,6 @@ module ULL
             # Representación visual de un Test en forma de String.
             def to_s
                 out = name + "\n"
-                #puts name
                 questions.each do |q|
                     out << "#{q}\n"
                 end
@@ -104,13 +103,24 @@ module ULL
                     require 'fileutils'
                     FileUtils.cp_r File.expand_path(File.dirname(__FILE__)) + '/html', 'html'
                 end
-                outFile = File.new("html/#{name.gsub(/[\ \\\/:]/, '_')}.html", "w")
-                raise IOError, 'Can\'t access to html output file' unless outFile
-                # Construimos el ERB y lo escribimos en el fichero
+                # Generamos HTML
+                htmlFile = File.new("html/#{name.gsub(/[\ \\\/:]/, '_')}.html", "w")
+                raise IOError, 'Can\'t access to html output file' unless htmlFile
+                # Generamos JavaScript
+                jsFile = File.new("html/js/quiz.js", "w")
+                raise IOError, 'Can\'t access to javascript output file' unless jsFile
+                
+                # Construimos los ERB y los escribimos en los ficheros
                 require 'templates'
                 rhtml = ERB.new(HTML_TEMPLATE)
-                outFile.syswrite(rhtml.result(binding))
-                outFile.close
+                htmlFile.syswrite(rhtml.result(binding))
+                htmlFile.close
+                
+                rjs = ERB.new(JAVASCRIPT_TEMPLATE)
+                jsFile.syswrite(rjs.result(binding))
+                jsFile.close
+                
+                
             end
 
         end
